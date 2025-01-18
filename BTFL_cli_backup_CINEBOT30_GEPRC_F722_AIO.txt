@@ -146,6 +146,7 @@ set dterm_lpf1_dyn_max_hz = 135
 set dterm_lpf1_static_hz = 67
 set dterm_lpf2_static_hz = 135
 set vbat_sag_compensation = 100
+set pid_at_min_throttle = OFF
 set p_pitch = 50
 set i_pitch = 99
 set d_pitch = 50
