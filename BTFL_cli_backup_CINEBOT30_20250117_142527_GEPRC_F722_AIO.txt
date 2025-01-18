@@ -1,0 +1,241 @@
+defaults nosave
+
+# diff all
+
+# version
+# Betaflight / STM32F7X2 (S7X2) 4.3.1 Jul 13 2022 / 03:27:52 (8d4f00532) MSP API: 1.44
+
+# config: YES
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults nosave
+
+board_name GEPRC_F722_AIO
+manufacturer_id GEPR
+mcu_id 002b000c3432501020383650
+signature 
+
+# name: Cinebot30
+
+# resources
+resource BEEPER 1 C15
+resource MOTOR 1 C09
+resource MOTOR 2 C08
+resource MOTOR 3 C07
+resource MOTOR 4 C06
+resource PPM 1 A03
+resource SERIAL_TX 1 A09
+resource SERIAL_TX 2 A02
+resource SERIAL_TX 3 B10
+resource SERIAL_TX 4 C10
+resource SERIAL_TX 5 C12
+resource SERIAL_RX 1 A10
+resource SERIAL_RX 2 A03
+resource SERIAL_RX 3 B11
+resource SERIAL_RX 4 C11
+resource SERIAL_RX 5 D02
+resource I2C_SCL 2 B10
+resource I2C_SDA 2 B11
+resource LED 1 C04
+resource SPI_SCK 1 A05
+resource SPI_SCK 2 B13
+resource SPI_SCK 3 B03
+resource SPI_MISO 1 A06
+resource SPI_MISO 2 B14
+resource SPI_MISO 3 B04
+resource SPI_MOSI 1 A07
+resource SPI_MOSI 2 B15
+resource SPI_MOSI 3 B05
+resource CAMERA_CONTROL 1 A00
+resource ADC_BATT 1 C02
+resource ADC_CURR 1 C01
+resource PINIO 2 A01
+resource FLASH_CS 1 B09
+resource OSD_CS 1 B12
+resource GYRO_EXTI 1 A08
+resource GYRO_CS 1 A15
+
+# timer
+timer A00 AF2
+# pin A00: TIM5 CH1 (AF2)
+timer A03 AF3
+# pin A03: TIM9 CH2 (AF3)
+timer C08 AF3
+# pin C08: TIM8 CH3 (AF3)
+timer C06 AF3
+# pin C06: TIM8 CH1 (AF3)
+timer C09 AF3
+# pin C09: TIM8 CH4 (AF3)
+timer C07 AF3
+# pin C07: TIM8 CH2 (AF3)
+timer B06 AF2
+# pin B06: TIM4 CH1 (AF2)
+timer B07 AF2
+# pin B07: TIM4 CH2 (AF2)
+timer B01 AF2
+# pin B01: TIM3 CH4 (AF2)
+timer B00 AF2
+# pin B00: TIM3 CH3 (AF2)
+timer A01 AF1
+# pin A01: TIM2 CH2 (AF1)
+
+# dma
+dma ADC 3 0
+# ADC 3: DMA2 Stream 0 Channel 2
+dma pin A00 0
+# pin A00: DMA1 Stream 2 Channel 6
+dma pin C08 1
+# pin C08: DMA2 Stream 4 Channel 7
+dma pin C06 0
+# pin C06: DMA2 Stream 2 Channel 0
+dma pin C09 0
+# pin C09: DMA2 Stream 7 Channel 7
+dma pin C07 1
+# pin C07: DMA2 Stream 3 Channel 7
+dma pin B06 0
+# pin B06: DMA1 Stream 0 Channel 2
+dma pin B07 0
+# pin B07: DMA1 Stream 3 Channel 2
+dma pin B01 0
+# pin B01: DMA1 Stream 2 Channel 5
+dma pin B00 0
+# pin B00: DMA1 Stream 7 Channel 5
+dma pin A01 0
+# pin A01: DMA1 Stream 6 Channel 3
+
+# feature
+feature -RX_PARALLEL_PWM
+feature RX_SERIAL
+feature GPS
+feature LED_STRIP
+feature OSD
+
+# serial
+serial 0 1 115200 57600 0 115200
+serial 3 64 115200 57600 0 115200
+serial 4 2 115200 115200 0 115200
+
+# beacon
+beacon RX_LOST
+beacon RX_SET
+
+# aux
+aux 0 0 0 900 1300 0 0
+aux 1 1 1 1300 1700 0 0
+aux 2 2 1 1700 2100 0 0
+aux 3 13 2 1700 2100 0 0
+aux 4 40 3 1600 2100 0 0
+
+# master
+set gyro_lpf1_static_hz = 300
+set gyro_lpf2_static_hz = 600
+set dyn_notch_count = 0
+set dyn_notch_q = 500
+set gyro_lpf1_dyn_min_hz = 300
+set gyro_lpf1_dyn_max_hz = 600
+set acc_calibration = -39,-8,-28,1
+set mag_bustype = I2C
+set mag_i2c_device = 2
+set mag_hardware = NONE
+set baro_bustype = I2C
+set baro_i2c_device = 2
+set baro_hardware = NONE
+set min_check = 1150
+set serialrx_provider = CRSF
+set adc_device = 3
+set blackbox_device = SPIFLASH
+set dshot_burst = ON
+set dshot_bidir = ON
+set motor_pwm_protocol = DSHOT600
+set motor_output_reordering = 2,3,0,1,4,5,6,7
+set align_board_roll = 180
+set vbat_max_cell_voltage = 435
+set current_meter = ADC
+set battery_meter = ADC
+set ibata_scale = 100
+set beeper_inversion = ON
+set beeper_od = OFF
+set beeper_dshot_beacon_tone = 3
+set yaw_motors_reversed = ON
+set small_angle = 180
+set deadband = 20
+set yaw_deadband = 15
+set simplified_gyro_filter_multiplier = 120
+set osd_vbat_pos = 2082
+set osd_tim_2_pos = 2114
+set osd_flymode_pos = 2103
+set osd_craft_name_pos = 2091
+set osd_gps_speed_pos = 2369
+set osd_gps_lon_pos = 2433
+set osd_gps_lat_pos = 2401
+set osd_gps_sats_pos = 2337
+set osd_warnings_pos = 2377
+set osd_displayport_device = MSP
+set debug_mode = GYRO_SCALED
+set max7456_spi_bus = 2
+set displayport_msp_serial = 0
+set pinio_config = 129,1,1,1
+set pinio_box = 39,40,41,42
+set flash_spi_bus = 3
+set gyro_1_bustype = SPI
+set gyro_1_spibus = 1
+set gyro_1_sensor_align = CW90
+set gyro_1_align_yaw = 900
+set name = Cinebot30
+
+profile 0
+
+# profile 0
+set dterm_lpf1_dyn_min_hz = 67
+set dterm_lpf1_dyn_max_hz = 135
+set dterm_lpf1_static_hz = 67
+set dterm_lpf2_static_hz = 135
+set vbat_sag_compensation = 100
+set p_pitch = 50
+set i_pitch = 99
+set d_pitch = 50
+set f_pitch = 101
+set p_roll = 48
+set i_roll = 95
+set d_roll = 44
+set f_roll = 97
+set p_yaw = 48
+set i_yaw = 95
+set f_yaw = 97
+set d_min_roll = 37
+set d_min_pitch = 42
+set feedforward_smooth_factor = 60
+set simplified_master_multiplier = 90
+set simplified_i_gain = 110
+set simplified_d_gain = 140
+set simplified_pi_gain = 120
+set simplified_dmax_gain = 50
+set simplified_feedforward_gain = 90
+set simplified_dterm_filter_multiplier = 90
+
+profile 1
+
+profile 2
+
+# restore original profile selection
+profile 0
+
+rateprofile 0
+
+rateprofile 1
+
+rateprofile 2
+
+rateprofile 3
+
+rateprofile 4
+
+rateprofile 5
+
+# restore original rateprofile selection
+rateprofile 0
+
+# save configuration
